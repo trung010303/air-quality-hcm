@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/air-quality.js": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
