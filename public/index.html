@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chất Lượng Không Khí Hải Phòng</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1><i class="fas fa-wind"></i> Chất Lượng Không Khí Hải Phòng</h1>
+        <p>Theo dõi nồng độ bụi bẩn ở các quận/huyện Hải Phòng</p>
+      </div>
+      <button class="refresh-btn" onclick="fetchAirQuality()">
+        <i class="fas fa-sync-alt"></i> Cập nhật
+      </button>
+    </header>
+
+    <div class="filter-section">
+      <input type="text" id="searchInput" class="search-box" placeholder="Tìm kiếm quận/huyện...">
+      <select id="sortSelect" class="sort-select">
+        <option value="aqi-asc">AQI: Thấp → Cao</option>
+        <option value="aqi-desc">AQI: Cao → Thấp</option>
+        <option value="name">Tên (A → Z)</option>
+      </select>
+    </div>
+
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
+      <p>Đang tải dữ liệu...</p>
+    </div>
+
+    <div id="content" class="content" style="display: none;">
+      <div class="stats-overview">
+        <div class="stat-card">
+          <h3>Tổng vị trí</h3>
+          <p id="totalLocations">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>AQI Trung bình</h3>
+          <p id="averageAQI">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Xấu nhất</h3>
+          <p id="worstLocation">-</p>
+        </div>
+        <div class="stat-card">
+          <h3>Tốt nhất</h3>
+          <p id="bestLocation">-</p>
+        </div>
+      </div>
+      <div id="airQualityGrid" class="air-quality-grid"></div>
+    </div>
+
+    <div id="detailModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modalBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
